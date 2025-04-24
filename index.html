@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS pagrindų testas</title>
+    <script src="js-testas.js" defer></script>
+</head>
+<body>
+    
+    <script>
+
+        function primaUzd (eurai){
+            let kursas = 1.13;
+            return eurai * kursas;
+        }
+        let sumaEur= Math.floor(Math.random()* 1000);
+        let sumaUsd= primaUzd(sumaEur);
+
+        console.log(`${sumaEur} Eur= ${sumaUsd.toFixed(2)} USD`);
+        
+        function antraUzd(doleriai) {
+            let kursas1 = 0.88;
+            return doleriai * kursas1;
+        }
+        let sumaDoleris= Math.floor(Math.random()* 1000);
+        let sumaEuras= antraUzd(sumaDoleris);
+
+        console.log(`${sumaDoleris} USD= ${sumaEuras.toFixed(2)} EUR`);
+        
+        // Trecia Uzduotis
+            let ugis= 176;
+            let svoris= 62;
+            let kmi= svoris/((ugis/100)*2);
+    
+        console.log('Jusu KMI:', kmi.toFixed(2));
+
+        // Ketvirta Uzduotis
+
+        let amzius= 26;
+
+        let dienos = amzius * 365;
+        let valandos = dienos * 24;
+        let minutes = valandos * 60;
+        let sekundes = minutes * 60;
+        console.log('Amzius:', amzius, 'm.', 'Dienos:', dienos, 'd.', 'Valandos:', valandos ,'h.', 'Minutes:', minutes, 'min.', 'Sekundes:', sekundes, 'sek.');
+
+        // Penkta Uzduotis
+
+        let farenheitas= 59;
+        let celsijus= (farenheitas-32)/1.8;
+        console.log('Temp. Farenheitais:', farenheitas, 'Temp. Celsijum:', celsijus);
+        
+        let celsius= 15;
+        let farenheit= (celsius* 9 / 5 + 32);
+        console.log('Temp. Celsijum:', celsius, 'Temp. Farenheitais:', farenheit);
+        
+        // Sesta Uzduotis
+
+        let sestaUzd = "";
+
+       for (let i = 1; i <= 10; i++) {
+        sestaUzd += i;
+        if (i < 10) {
+            sestaUzd += "-";}
+        }
+        
+        console.log(sestaUzd);
+
+        // Septinta Uzduotis
+
+        let septintaUzd= '';
+        for(let i =1; i<=5; i++){
+            septintaUzd += '*'
+            console.log(septintaUzd);}
+        
+        // Astunta Uzduotis
+
+        let data= new Date();
+        let kaledos= new Date("2025-12-25");
+        let skirtumas= kaledos - data;
+        let liko= Math.ceil(skirtumas / (1000*60*60*24));
+
+        console.log('Iki Kaledu Liko:', liko, 'd.');
+
+        // Devinta Uzduotis
+
+        let masyvas= ['Tomas', 'Dainius', 'Paulius', 'Jonas'];
+        console.log(masyvas);
+        
+        // Desimta uzduotis
+
+        function randomArrayElement(array) {
+        const randomKey = Math.floor(Math.random() * array.length);
+        return array[randomKey];
+        }
+
+        function generateRandomPassword() {
+        const lithuanianLowercase = ['a', 'ą', 'b', 'c', 'č', 'd', 'e', 'ę', 'ė', 'f', 'g', 'h', 'i', 'y', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'r', 's', 'š', 't', 'u', 'ų', 'ū', 'v', 'z', 'ž'];
+        const lithuanianUppercase = ['A', 'Ą', 'B', 'C', 'Č', 'D', 'E', 'Ę', 'Ė', 'F', 'G', 'H', 'I', 'Y', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'R', 'S', 'Š', 'T', 'U', 'Ų', 'Ū', 'V', 'Z', 'Ž'];
+        const numbers = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
+        const symbols = ['!', '"', '#', '$', '%', '&', "'", '(', ')', '*', '+', ',', '-', '.', '/', ':', ';', '<', '=', '>', '?', '@', '[', '\\', ']', '^', '_', '`', '{', '|', '}', '~'];
+
+        let length = 12;
+        let password = '';
+
+        password += randomArrayElement(lithuanianLowercase);
+        password += randomArrayElement(lithuanianUppercase);
+        password += randomArrayElement(numbers);
+        password += randomArrayElement(symbols);
+
+        length -= 4;
+
+        for (let i = 0; i < length; i++) {
+        const randomChar = Math.floor(Math.random() * 4);
+        switch (randomChar) {
+            case 0:
+                password += randomArrayElement(lithuanianLowercase);
+                break;
+            case 1:
+                password += randomArrayElement(lithuanianUppercase);
+                break;
+            case 2:
+                password += randomArrayElement(numbers);
+                break;
+            case 3:
+                password += randomArrayElement(symbols);
+                break;
+            default:
+                password += randomArrayElement(lithuanianLowercase);
+            }
+        }
+
+         return password;
+        }
+        console.log(generateRandomPassword())
+        
+        
+    </script>
+</body>
+</html>
